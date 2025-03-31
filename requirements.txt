@@ -1,0 +1,4 @@
+Flask==2.0.1
+comtypes==1.1.10
+pdf2docx==0.5.3
+Werkzeug==2.0.1

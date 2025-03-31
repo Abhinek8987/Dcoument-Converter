@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc Converter Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Doc Converter Pro</h1>
+            <p class="app-description">Convert documents between PDF and Word formats</p>
+        </header>
+
+        <main class="app-main">
+            <div class="conversion-toggle">
+                <button id="docx-to-pdf" class="toggle-btn active">DOCX to PDF</button>
+                <button id="pdf-to-docx" class="toggle-btn">PDF to DOCX</button>
+            </div>
+
+            <div id="upload-area" class="upload-zone">
+                <div class="upload-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24">
+                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                    </svg>
+                    <h3>Drag & drop files here</h3>
+                    <p>or click to browse files</p>
+                    <input type="file" id="file-input" class="file-input" multiple>
+                </div>
+            </div>
+
+            <div class="file-manager">
+                <div class="file-list-header">
+                    <span>Filename</span>
+                    <span>Size</span>
+                    <span>Status</span>
+                </div>
+                <div id="file-list" class="file-list"></div>
+            </div>
+
+            <div class="conversion-controls">
+                <div class="stats-display" id="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Uploaded</span>
+                        <span id="uploaded-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Converted</span>
+                        <span id="converted-count" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div id="status-message" class="status-message">Ready for conversion</div>
+                    <div class="progress-bar">
+                        <div id="progress-bar-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <button id="convert-btn" class="convert-btn" disabled>
+                    <span>Convert Files</span>
+                    <svg class="convert-icon" viewBox="0 0 24 24">
+                        <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M12,19A5,5 0 0,0 17,14A5,5 0 0,0 12,9A5,5 0 0,0 7,14A5,5 0 0,0 12,19Z" />
+                    </svg>
+                </button>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>Developed By Abhinek Pandey</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
