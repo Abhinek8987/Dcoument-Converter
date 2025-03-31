@@ -4,7 +4,8 @@
 
 <div align="center">
 
-![image](https://github.com/user-attachments/assets/4ccd2593-1f4c-4eb1-a75c-b09f230615c8)
+![image](https://github.com/user-attachments/assets/4e0363d4-cf1e-4060-9461-8c7cf0271b82)
+
 
 
 
@@ -51,8 +52,9 @@
 
 1️⃣ **Clone the repository:**  
 ```bash
-git clone https://github.com/yourusername/document-converter.git
-cd document-converter
+git clone https://github.com/Abhinek8987/Dcoument-Converter
+cd Dcoument-Converter
+```
 
 2️⃣ Create and activate a virtual environment:
    ```bashpython -m venv venv
