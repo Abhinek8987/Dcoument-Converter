@@ -106,16 +106,20 @@ The converted files will be automatically downloaded as a ZIP archive
 ```
 
 
-## 🔍 How It Works
-🔹 File Upload – User uploads DOCX or PDF files through the web interface
-🔹 Server Processing:
+## 🔍 How It Works  
 
-DOCX → PDF – Uses Microsoft Word COM automation via comtypes
+🔹 **File Upload** – User uploads DOCX or PDF files through the web interface  
 
-PDF → DOCX – Uses pdf2docx for accurate text extraction
-🔹 Parallel Processing – Converts multiple files simultaneously
-🔹 File Packaging – Converted files are bundled into a ZIP archive
-🔹 Download & Cleanup – User receives the ZIP file, and temporary files are cleaned up automatically
+🔹 **Server Processing:**  
+   - **DOCX → PDF** – Uses Microsoft Word COM automation via `comtypes`  
+   - **PDF → DOCX** – Uses `pdf2docx` for accurate text extraction  
+
+🔹 **Parallel Processing** – Converts multiple files simultaneously  
+
+🔹 **File Packaging** – Converted files are bundled into a **ZIP archive**  
+
+🔹 **Download & Cleanup** – User receives the **ZIP file**, and temporary files are **cleaned up automatically**  
+
 
 
 
