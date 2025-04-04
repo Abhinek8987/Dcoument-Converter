@@ -23,19 +23,31 @@ def allowed_file(filename):
 
 def convert_to_pdf(doc_path, pdf_path):
     try:
-        pythoncom.CoInitialize()
-        word = comtypes.client.CreateObject("Word.Application")
-        word.Visible = False
-        doc = word.Documents.Open(doc_path)
-        doc.SaveAs(pdf_path, FileFormat=17)
-        doc.Close()
-        word.Quit()
-        return True
+        # First try Windows comtypes approach
+        try:
+            pythoncom.CoInitialize()
+            word = comtypes.client.CreateObject("Word.Application")
+            word.Visible = False
+            doc = word.Documents.Open(doc_path)
+            doc.SaveAs(pdf_path, FileFormat=17)
+            doc.Close()
+            word.Quit()
+            pythoncom.CoUninitialize()
+            return True
+        except (ImportError, AttributeError, OSError):
+            # Fallback to Linux LibreOffice if comtypes fails
+            cmd = f"libreoffice --headless --convert-to pdf --outdir {os.path.dirname(pdf_path)} '{doc_path}'"
+            if os.system(cmd) == 0:
+                # LibreOffice adds .pdf extension automatically
+                converted_file = os.path.splitext(doc_path)[0] + ".pdf"
+                if os.path.exists(converted_file):
+                    if converted_file != pdf_path:
+                        os.rename(converted_file, pdf_path)
+                    return True
+            return False
     except Exception as e:
         print(f"Conversion error: {e}")
         return False
-    finally:
-        pythoncom.CoUninitialize()
 
 def convert_pdf_to_docx(pdf_path, docx_path):
     try:
